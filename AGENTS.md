@@ -14,7 +14,9 @@ Phase 1 (current) is the `ContactWise API` credential plus the `ContactWise SMS`
 
 ```bash
 npm run dev        # build + watch, then run a local n8n via `npx n8n` with the node linked; http://localhost:5678
-npm run dev:docker # build, then run n8n 2.40.5 in Docker with dist/ mounted as a custom node (no watch: rerun after changes)
+npm run dev:docker # build, then (re)start n8n 2.40.5 in Docker on :5678 with the package installed as a community node.
+                   # Rerun after every change (the build replaces dist/). n8n data persists in the n8n-contactwise-dev volume
+npm run dev:docker:logs / dev:docker:stop
 npm run build
 npm run lint       # n8n community-node lint rules; `npm run lint:fix` autofixes
 npm run typecheck  # tsc over nodes/, credentials/ and test/ (tsconfig.test.json)
