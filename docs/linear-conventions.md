@@ -19,8 +19,10 @@ How issues are managed in the Linear project **n8n-nodes-contactwise** (team `T-
 |---|---|
 | Urgent | It blocks the current milestone's target date or a customer. |
 | High | The current milestone needs it. |
-| Medium | The next milestone needs it. |
-| Low | Nice to have, unscheduled, or owned by another team. |
+| Medium | A later milestone needs it. |
+| Low | Nice to have, or unscheduled. |
+
+API-team reference issues (under TIN-20) take the priority of the node work they block, so the API team can see what matters most to us.
 
 ### Milestones
 
@@ -44,6 +46,8 @@ The **description is the spec**: the problem, requirements, scope and "done when
 | `## Decision` | What was decided, why, and the date |
 | `## Progress` | What's done, what's next, blockers, the date |
 | `## Implementation` | The PR link, what changed, the `verify` result, anything left for later |
+
+**Epics** are the exception. An epic's description is the requirements document for its sub-issues, so it may keep a decision log and a context snapshot. Its type label is the main type of its sub-issues.
 
 An `## Implementation` comment is **required before an issue is marked Done**. Issues that are closed without code (ops, research, API-team) use it to record the outcome instead. **Canceled** and **Duplicate** always get a comment with the reason.
 
