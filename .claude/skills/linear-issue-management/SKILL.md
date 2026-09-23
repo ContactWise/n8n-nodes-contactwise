@@ -70,9 +70,8 @@ Check the **GitHub integration** line in CLAUDE.md. If PR automation is configur
 
 - **Don't** set In Progress, In Review or Done by hand, and **don't** attach the PR link yourself, for an issue that has a PR. Only work without a PR (ops, research, another team's work) is moved by hand.
 - **If merging closes the issue** (the "merged → Done" mapping), post the `## Implementation` comment **before** the PR merges. After the merge it's too late: the issue is already Done.
-- **In the PR description**, use Linear's link words:
-  - `Fixes TIN-n` (or `Closes` / `Resolves`) for the issue the PR finishes. It closes on merge.
-  - `Part of TIN-n` / `Ref TIN-n` / `Related to TIN-n` for issues the PR only contributes to, such as an epic. These link without closing.
+- **Mention only the PR's own issue ID** in the branch name, commit messages, PR title and PR description: `Fixes TIN-n` in the description. **Every** issue ID Linear finds there is linked and gets the same automatic status changes, including IDs after "Part of", "Ref" or "Related to". Observed 2026-09-23: a PR mentioning `Part of TIN-45` and `Ref TIN-53` moved the epic and an In Review issue to In Progress. Refer to other issues (epics, related work) by name in the PR, or record the connection in Linear itself (parent, sub-issue, relations).
+- **If a PR mentioned an extra issue by mistake,** edit the PR description to remove the ID. Linear then drops that link. Put back any status the automation changed, and add a comment on that issue explaining why.
 - **If GitHub Issues sync is on**, issues opened on GitHub arrive without our fields. Triage them with the "Complete a synced or hand-made issue" procedure below. The enforcement hook doesn't see them.
 
 ## 4. Procedures
@@ -92,7 +91,7 @@ Check the **GitHub integration** line in CLAUDE.md. If PR automation is configur
 
 ### Update, start or finish work
 - **Starting:** create the branch with Linear's branch name, and add a `## Progress` comment with the plan, or a `## Design` comment. Set `In Progress` by hand only if there's no GitHub integration or no branch.
-- **PR opened:** put `Fixes <ID>` (and `Part of <epic ID>` where it applies) in the PR description, and add a `## Progress` comment. Without the integration, also set `In Review` and attach the PR link (`links`).
+- **PR opened:** put `Fixes <ID>` in the PR description, with no other issue IDs, and add a `## Progress` comment. Without the integration, also set `In Review` and attach the PR link (`links`).
 - **Ready to merge:** add the `## Implementation` comment (PR link, what changed, check results, anything left for later) **before** merging. With "merged → Done" automation, the merge then closes the issue. Without it, set `Done` after the merge.
 - **Decision taken:** add a `## Decision` comment with the date.
 - **Plan changed:** move the milestone or priority, and add a `## Decision` comment giving the reason.
