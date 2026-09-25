@@ -35,6 +35,9 @@ export const whatsAppScenarios = {
 	/** 200 from `POST /{phone-number-id}/media`. */
 	mediaUploaded: (id = '1037543291543636'): GatewayScenario => ({ status: 200, body: { id } }),
 
+	/** 200 from `DELETE /{media-id}`. */
+	mediaDeleted: (): GatewayScenario => ({ status: 200, body: { success: true } }),
+
 	/** 200 from `GET /{waba-id}/phone_numbers`. */
 	phoneNumbers: (
 		data: Array<{ id: string; display_phone_number: string; verified_name: string }>,
