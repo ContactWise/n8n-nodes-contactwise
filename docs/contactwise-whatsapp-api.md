@@ -98,7 +98,7 @@ Confirmed by the API team on 2026-09-26 ([spec](https://claude.ai/code/artifact/
 If the stream breaks after the headers, the gateway aborts the connection, so the node sees a network error, not a short file.
 
 - **No side effects:** a download changes nothing, so the node retries 429, 503, 502, 504 and network errors (see Errors).
-- **Unconfirmed (checked 2026-09-26):** `api.contactwise.io` doesn't route `/v1/whatsapp/` to the gateway yet. It returns a bare 404. The API team is adding the routing rule (TIN-33).
+- **Routing confirmed (2026-09-26):** `api.contactwise.io` routes `/v1/whatsapp/` to the gateway. Without a key it returns 401 `{ "error": "Missing X-CW-Api-Key header." }`.
 
 ### Not built yet (API team)
 
